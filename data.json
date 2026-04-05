@@ -1,9 +1,9 @@
 {
   "bankroll": 22254.03,
   "totalPnl": 2254.03,
-  "wins": 0,
-  "losses": 0,
-  "winRate": "0.0",
+  "wins": 3,
+  "losses": 8,
+  "winRate": "27.3",
   "settled": [
     {
       "id": "BET-1775064225354-GI560O",
@@ -961,6 +961,122 @@
       }
     },
     {
+      "id": "BET-1775070772606-H7XVJB",
+      "placedAt": "2026-04-01T19:12:52.606Z",
+      "status": "open",
+      "result": null,
+      "pnl": null,
+      "closingOdds": null,
+      "clv": null,
+      "betfairBetId": "PAPER-MB-1775070772606",
+      "betfairMode": "paper",
+      "confirmedOdds": 8.2,
+      "competition": "SA",
+      "homeTeam": "US Cremonese",
+      "awayTeam": "Bologna FC 1909",
+      "matchDate": "2026-04-05T13:00:00Z",
+      "market": "1X2",
+      "outcome": "awayWin",
+      "label": "Away Win",
+      "odds": 2.16,
+      "stake": 360.73,
+      "ourProbability": 0.5745,
+      "impliedProbability": 0.463,
+      "edgePct": 11.15,
+      "ev": 0.2409,
+      "grade": "B",
+      "confidence": 85,
+      "kellyPct": 3.12,
+      "bankrollAtBet": 15872.22,
+      "reasoning": {
+        "formSummary": "DLLLLW",
+        "h2hSummary": "",
+        "modelLambda": "xG: 0.501-1.362",
+        "topScore": {
+          "home": 0,
+          "away": 1,
+          "probability": 0.1976
+        },
+        "compositeScore": 26.5
+      },
+      "dataSnapshot": {
+        "lambdaHome": 0.501,
+        "lambdaAway": 1.362,
+        "probs": {
+          "homeWin": 0.1286,
+          "draw": 0.2969,
+          "awayWin": 0.5745,
+          "btts": 0.3022,
+          "over15": 0.5694,
+          "over25": 0.2872,
+          "over35": 0.1177
+        },
+        "odds": {
+          "home": 3.7,
+          "draw": 3.6,
+          "away": 2.16
+        }
+      }
+    },
+    {
+      "id": "BET-1775340763873-R8IJAV",
+      "placedAt": "2026-04-04T22:12:43.873Z",
+      "status": "open",
+      "result": null,
+      "pnl": null,
+      "closingOdds": null,
+      "clv": null,
+      "betfairBetId": "PAPER-MB-1775340763873",
+      "betfairMode": "paper",
+      "confirmedOdds": 90,
+      "competition": "PPL",
+      "homeTeam": "Casa Pia AC",
+      "awayTeam": "Sport Lisboa e Benfica",
+      "matchDate": "2026-04-06T19:45:00Z",
+      "market": "1X2",
+      "outcome": "awayWin",
+      "label": "Away Win",
+      "odds": 3.5,
+      "stake": 394.21,
+      "ourProbability": 0.7569,
+      "impliedProbability": 0.2857,
+      "edgePct": 47.12,
+      "ev": 1.6492,
+      "grade": "A",
+      "confidence": 90,
+      "kellyPct": 9.89,
+      "bankrollAtBet": 19710.62,
+      "reasoning": {
+        "formSummary": "DWLDDL",
+        "h2hSummary": "0% home win rate in last 1 meetings",
+        "modelLambda": "xG: 0.707-2.479",
+        "topScore": {
+          "home": 0,
+          "away": 2,
+          "probability": 0.127
+        },
+        "compositeScore": 29.2
+      },
+      "dataSnapshot": {
+        "lambdaHome": 0.707,
+        "lambdaAway": 2.479,
+        "probs": {
+          "homeWin": 0.0779,
+          "draw": 0.1652,
+          "awayWin": 0.7569,
+          "btts": 0.4731,
+          "over15": 0.8353,
+          "over25": 0.6194,
+          "over35": 0.3976
+        },
+        "odds": {
+          "home": 2,
+          "draw": 3.4,
+          "away": 3.5
+        }
+      }
+    },
+    {
       "id": "BET-1775340764144-K1V1KC",
       "placedAt": "2026-04-04T22:12:44.144Z",
       "status": "open",
@@ -1017,7 +1133,529 @@
           "away": 3.5
         }
       }
+    },
+    {
+      "id": "BET-1775340764978-L9ZRTX",
+      "placedAt": "2026-04-04T22:12:44.978Z",
+      "status": "open",
+      "result": null,
+      "pnl": null,
+      "closingOdds": null,
+      "clv": null,
+      "betfairBetId": "PAPER-MB-1775340764977",
+      "betfairMode": "paper",
+      "confirmedOdds": 3.1,
+      "competition": "CL",
+      "homeTeam": "FC Barcelona",
+      "awayTeam": "Club Atlético de Madrid",
+      "matchDate": "2026-04-08T19:00:00Z",
+      "market": "1X2",
+      "outcome": "homeWin",
+      "label": "Home Win",
+      "odds": 2,
+      "stake": 394.21,
+      "ourProbability": 0.8659,
+      "impliedProbability": 0.5,
+      "edgePct": 36.59,
+      "ev": 0.7318,
+      "grade": "A",
+      "confidence": 90,
+      "kellyPct": 10.98,
+      "bankrollAtBet": 18922.2,
+      "reasoning": {
+        "formSummary": "WDWWWW",
+        "h2hSummary": "100% home win rate in last 2 meetings",
+        "modelLambda": "xG: 5.244-1.789",
+        "topScore": {
+          "home": 5,
+          "away": 1,
+          "probability": 0.0522
+        },
+        "compositeScore": 92.3
+      },
+      "dataSnapshot": {
+        "lambdaHome": 5.244,
+        "lambdaAway": 1.789,
+        "probs": {
+          "homeWin": 0.8659,
+          "draw": 0.0718,
+          "awayWin": 0.0623,
+          "btts": 0.7871,
+          "over15": 0.9087,
+          "over25": 0.92,
+          "over35": 0.8681
+        },
+        "odds": {
+          "home": 2,
+          "draw": 3.4,
+          "away": 3.5
+        }
+      }
+    },
+    {
+      "id": "BET-1775340765338-1O0XLO",
+      "placedAt": "2026-04-04T22:12:45.338Z",
+      "status": "open",
+      "result": null,
+      "pnl": null,
+      "closingOdds": null,
+      "clv": null,
+      "betfairBetId": "PAPER-MB-1775340765337",
+      "betfairMode": "paper",
+      "confirmedOdds": 95,
+      "competition": "FL1",
+      "homeTeam": "Paris FC",
+      "awayTeam": "AS Monaco FC",
+      "matchDate": "2026-04-10T17:00:00Z",
+      "market": "1X2",
+      "outcome": "awayWin",
+      "label": "Away Win",
+      "odds": 3.5,
+      "stake": 394.21,
+      "ourProbability": 0.6314,
+      "impliedProbability": 0.2857,
+      "edgePct": 34.57,
+      "ev": 1.2099,
+      "grade": "A",
+      "confidence": 90,
+      "kellyPct": 7.26,
+      "bankrollAtBet": 18527.99,
+      "reasoning": {
+        "formSummary": "LDWDDW",
+        "h2hSummary": "100% home win rate in last 1 meetings",
+        "modelLambda": "xG: 0.81-1.926",
+        "topScore": {
+          "home": 0,
+          "away": 2,
+          "probability": 0.1202
+        },
+        "compositeScore": 44
+      },
+      "dataSnapshot": {
+        "lambdaHome": 0.81,
+        "lambdaAway": 1.926,
+        "probs": {
+          "homeWin": 0.1404,
+          "draw": 0.2282,
+          "awayWin": 0.6314,
+          "btts": 0.4834,
+          "over15": 0.7708,
+          "over25": 0.5173,
+          "over35": 0.2952
+        },
+        "odds": {
+          "home": 2,
+          "draw": 3.4,
+          "away": 3.5
+        }
+      }
+    },
+    {
+      "id": "BET-1775340766923-229KVM",
+      "placedAt": "2026-04-04T22:12:46.923Z",
+      "status": "open",
+      "result": null,
+      "pnl": null,
+      "closingOdds": null,
+      "clv": null,
+      "betfairBetId": "PAPER-MB-1775340766922",
+      "betfairMode": "paper",
+      "confirmedOdds": 2.42,
+      "competition": "ELC",
+      "homeTeam": "Ipswich Town FC",
+      "awayTeam": "Birmingham City FC",
+      "matchDate": "2026-04-06T14:00:00Z",
+      "market": "1X2",
+      "outcome": "homeWin",
+      "label": "Home Win",
+      "odds": 2,
+      "stake": 394.21,
+      "ourProbability": 0.738,
+      "impliedProbability": 0.5,
+      "edgePct": 23.8,
+      "ev": 0.476,
+      "grade": "A",
+      "confidence": 90,
+      "kellyPct": 7.14,
+      "bankrollAtBet": 18133.78,
+      "reasoning": {
+        "formSummary": "WWDDWD",
+        "h2hSummary": "0% home win rate in last 1 meetings",
+        "modelLambda": "xG: 2.119-0.53",
+        "topScore": {
+          "home": 2,
+          "away": 0,
+          "probability": 0.1588
+        },
+        "compositeScore": 67.8
+      },
+      "dataSnapshot": {
+        "lambdaHome": 2.119,
+        "lambdaAway": 0.53,
+        "probs": {
+          "homeWin": 0.738,
+          "draw": 0.1907,
+          "awayWin": 0.0712,
+          "btts": 0.3643,
+          "over15": 0.7519,
+          "over25": 0.4902,
+          "over35": 0.2756
+        },
+        "odds": {
+          "home": 2,
+          "draw": 3.4,
+          "away": 3.5
+        }
+      }
+    },
+    {
+      "id": "BET-1775340767256-1MGVOO",
+      "placedAt": "2026-04-04T22:12:47.256Z",
+      "status": "open",
+      "result": null,
+      "pnl": null,
+      "closingOdds": null,
+      "clv": null,
+      "betfairBetId": "PAPER-MB-1775340767255",
+      "betfairMode": "paper",
+      "confirmedOdds": 16,
+      "competition": "DED",
+      "homeTeam": "FC Volendam",
+      "awayTeam": "Feyenoord Rotterdam",
+      "matchDate": "2026-04-05T12:30:00Z",
+      "market": "1X2",
+      "outcome": "awayWin",
+      "label": "Away Win",
+      "odds": 3.5,
+      "stake": 394.21,
+      "ourProbability": 0.507,
+      "impliedProbability": 0.2857,
+      "edgePct": 22.13,
+      "ev": 0.7745,
+      "grade": "A",
+      "confidence": 90,
+      "kellyPct": 4.65,
+      "bankrollAtBet": 17739.57,
+      "reasoning": {
+        "formSummary": "WLWLLL",
+        "h2hSummary": "0% home win rate in last 1 meetings",
+        "modelLambda": "xG: 1.472-2.069",
+        "topScore": {
+          "home": 1,
+          "away": 1,
+          "probability": 0.0997
+        },
+        "compositeScore": 33.9
+      },
+      "dataSnapshot": {
+        "lambdaHome": 1.472,
+        "lambdaAway": 2.069,
+        "probs": {
+          "homeWin": 0.2689,
+          "draw": 0.2241,
+          "awayWin": 0.507,
+          "btts": 0.6813,
+          "over15": 0.8795,
+          "over25": 0.6886,
+          "over35": 0.4743
+        },
+        "odds": {
+          "home": 2,
+          "draw": 3.4,
+          "away": 3.5
+        }
+      }
+    },
+    {
+      "id": "BET-1775340768871-HZTUHH",
+      "placedAt": "2026-04-04T22:12:48.871Z",
+      "status": "open",
+      "result": null,
+      "pnl": null,
+      "closingOdds": null,
+      "clv": null,
+      "betfairBetId": "PAPER-MB-1775340768870",
+      "betfairMode": "paper",
+      "confirmedOdds": 95,
+      "competition": "CL",
+      "homeTeam": "Sporting Clube de Portugal",
+      "awayTeam": "Arsenal FC",
+      "matchDate": "2026-04-07T19:00:00Z",
+      "market": "1X2",
+      "outcome": "awayWin",
+      "label": "Away Win",
+      "odds": 3.5,
+      "stake": 394.21,
+      "ourProbability": 0.4689,
+      "impliedProbability": 0.2857,
+      "edgePct": 18.32,
+      "ev": 0.6411,
+      "grade": "A",
+      "confidence": 90,
+      "kellyPct": 3.85,
+      "bankrollAtBet": 17345.36,
+      "reasoning": {
+        "formSummary": "WDLWWW",
+        "h2hSummary": "33.3% home win rate in last 0 meetings",
+        "modelLambda": "xG: 1.5-1.922",
+        "topScore": {
+          "home": 1,
+          "away": 1,
+          "probability": 0.1064
+        },
+        "compositeScore": 50
+      },
+      "dataSnapshot": {
+        "lambdaHome": 1.5,
+        "lambdaAway": 1.922,
+        "probs": {
+          "homeWin": 0.2959,
+          "draw": 0.2351,
+          "awayWin": 0.4689,
+          "btts": 0.6707,
+          "over15": 0.8677,
+          "over25": 0.6643,
+          "over35": 0.4471
+        },
+        "odds": {
+          "home": 2,
+          "draw": 3.4,
+          "away": 3.5
+        }
+      }
+    },
+    {
+      "id": "BET-1775340769571-KE05YK",
+      "placedAt": "2026-04-04T22:12:49.571Z",
+      "status": "open",
+      "result": null,
+      "pnl": null,
+      "closingOdds": null,
+      "clv": null,
+      "betfairBetId": "PAPER-MB-1775340769570",
+      "betfairMode": "paper",
+      "confirmedOdds": 16,
+      "competition": "FL1",
+      "homeTeam": "FC Metz",
+      "awayTeam": "FC Nantes",
+      "matchDate": "2026-04-05T15:15:00Z",
+      "market": "1X2",
+      "outcome": "awayWin",
+      "label": "Away Win",
+      "odds": 3.5,
+      "stake": 394.21,
+      "ourProbability": 0.439,
+      "impliedProbability": 0.2857,
+      "edgePct": 15.33,
+      "ev": 0.5365,
+      "grade": "A",
+      "confidence": 90,
+      "kellyPct": 3.22,
+      "bankrollAtBet": 16951.15,
+      "reasoning": {
+        "formSummary": "LLLLLD",
+        "h2hSummary": "100% home win rate in last 1 meetings",
+        "modelLambda": "xG: 0.905-1.278",
+        "topScore": {
+          "home": 1,
+          "away": 1,
+          "probability": 0.1473
+        },
+        "compositeScore": 31.7
+      },
+      "dataSnapshot": {
+        "lambdaHome": 0.905,
+        "lambdaAway": 1.278,
+        "probs": {
+          "homeWin": 0.2548,
+          "draw": 0.3061,
+          "awayWin": 0.439,
+          "btts": 0.4421,
+          "over15": 0.6582,
+          "over25": 0.375,
+          "over35": 0.1795
+        },
+        "odds": {
+          "home": 2,
+          "draw": 3.4,
+          "away": 3.5
+        }
+      }
+    },
+    {
+      "id": "BET-1775340769912-3SQVRC",
+      "placedAt": "2026-04-04T22:12:49.912Z",
+      "status": "open",
+      "result": null,
+      "pnl": null,
+      "closingOdds": null,
+      "clv": null,
+      "betfairBetId": "PAPER-MB-1775340769911",
+      "betfairMode": "paper",
+      "confirmedOdds": 3.5,
+      "competition": "PD",
+      "homeTeam": "Deportivo Alavés",
+      "awayTeam": "CA Osasuna",
+      "matchDate": "2026-04-05T19:00:00Z",
+      "market": "1X2",
+      "outcome": "awayWin",
+      "label": "Away Win",
+      "odds": 3.5,
+      "stake": 394.21,
+      "ourProbability": 0.428,
+      "impliedProbability": 0.2857,
+      "edgePct": 14.23,
+      "ev": 0.498,
+      "grade": "A",
+      "confidence": 90,
+      "kellyPct": 2.99,
+      "bankrollAtBet": 16556.940000000002,
+      "reasoning": {
+        "formSummary": "DDLLDW",
+        "h2hSummary": "0% home win rate in last 1 meetings",
+        "modelLambda": "xG: 1.418-1.676",
+        "topScore": {
+          "home": 1,
+          "away": 1,
+          "probability": 0.1217
+        },
+        "compositeScore": 29.7
+      },
+      "dataSnapshot": {
+        "lambdaHome": 1.418,
+        "lambdaAway": 1.676,
+        "probs": {
+          "homeWin": 0.3182,
+          "draw": 0.2537,
+          "awayWin": 0.428,
+          "btts": 0.6259,
+          "over15": 0.8284,
+          "over25": 0.6001,
+          "over35": 0.3765
+        },
+        "odds": {
+          "home": 2,
+          "draw": 3.4,
+          "away": 3.5
+        }
+      }
+    },
+    {
+      "id": "BET-1775340771171-XTKMLP",
+      "placedAt": "2026-04-04T22:12:51.171Z",
+      "status": "open",
+      "result": null,
+      "pnl": null,
+      "closingOdds": null,
+      "clv": null,
+      "betfairBetId": "PAPER-MB-1775340771170",
+      "betfairMode": "paper",
+      "confirmedOdds": 27,
+      "competition": "PPL",
+      "homeTeam": "CF Estrela da Amadora",
+      "awayTeam": "Sporting Clube de Portugal",
+      "matchDate": "2026-04-11T19:30:00Z",
+      "market": "1X2",
+      "outcome": "awayWin",
+      "label": "Away Win",
+      "odds": 3.5,
+      "stake": 394.21,
+      "ourProbability": 0.3813,
+      "impliedProbability": 0.2857,
+      "edgePct": 9.56,
+      "ev": 0.3345,
+      "grade": "B",
+      "confidence": 80,
+      "kellyPct": 2.01,
+      "bankrollAtBet": 16162.73,
+      "reasoning": {
+        "formSummary": "",
+        "h2hSummary": "0% home win rate in last 1 meetings",
+        "modelLambda": "xG: 1.493-1.536",
+        "topScore": {
+          "home": 1,
+          "away": 1,
+          "probability": 0.1253
+        },
+        "compositeScore": 41.3
+      },
+      "dataSnapshot": {
+        "lambdaHome": 1.493,
+        "lambdaAway": 1.536,
+        "probs": {
+          "homeWin": 0.361,
+          "draw": 0.2576,
+          "awayWin": 0.3813,
+          "btts": 0.619,
+          "over15": 0.8195,
+          "over25": 0.5866,
+          "over35": 0.3637
+        },
+        "odds": {
+          "home": 2,
+          "draw": 3.4,
+          "away": 3.5
+        }
+      }
+    },
+    {
+      "id": "BET-1775340772177-9O1ZQN",
+      "placedAt": "2026-04-04T22:12:52.177Z",
+      "status": "open",
+      "result": null,
+      "pnl": null,
+      "closingOdds": null,
+      "clv": null,
+      "betfairBetId": "PAPER-MB-1775340772177",
+      "betfairMode": "paper",
+      "confirmedOdds": 16,
+      "competition": "PPL",
+      "homeTeam": "FC Arouca",
+      "awayTeam": "GD Estoril Praia",
+      "matchDate": "2026-04-06T17:45:00Z",
+      "market": "1X2",
+      "outcome": "awayWin",
+      "label": "Away Win",
+      "odds": 3.5,
+      "stake": 301.28,
+      "ourProbability": 0.3585,
+      "impliedProbability": 0.2857,
+      "edgePct": 7.28,
+      "ev": 0.2548,
+      "grade": "C",
+      "confidence": 90,
+      "kellyPct": 1.53,
+      "bankrollAtBet": 15768.52,
+      "reasoning": {
+        "formSummary": "LWLLLW",
+        "h2hSummary": "0% home win rate in last 1 meetings",
+        "modelLambda": "xG: 2.003-1.857",
+        "topScore": {
+          "home": 1,
+          "away": 1,
+          "probability": 0.0886
+        },
+        "compositeScore": 42.5
+      },
+      "dataSnapshot": {
+        "lambdaHome": 2.003,
+        "lambdaAway": 1.857,
+        "probs": {
+          "homeWin": 0.4154,
+          "draw": 0.226,
+          "awayWin": 0.3585,
+          "btts": 0.7385,
+          "over15": 0.9074,
+          "over25": 0.7398,
+          "over35": 0.5397
+        },
+        "odds": {
+          "home": 2,
+          "draw": 3.4,
+          "away": 3.5
+        }
+      }
     }
   ],
-  "lastUpdated": "2026-04-05T14:34:19.019Z"
+  "lastUpdated": "2026-04-05T14:38:49.915Z"
 }
