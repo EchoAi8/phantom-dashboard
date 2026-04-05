@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phantom — Betting Dashboard</title>
+  <style>
+    :root {
+      --bg: #080810;
+      --bg-card: #0e0e1a;
+      --bg-card2: #12121f;
+      --purple: #7c3aed;
+      --purple-light: #a78bfa;
+      --green: #10b981;
+      --red: #ef4444;
+      --gold: #f59e0b;
+      --text: #e2e8f0;
+      --muted: #64748b;
+      --dim: #94a3b8;
+      --border: #1e1e35;
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      padding-bottom: 40px;
+    }
+
+    /* HEADER */
+    .header {
+      background: linear-gradient(135deg, #080810 0%, #10082a 100%);
+      border-bottom: 1px solid #1a1235;
+      padding: 16px 20px;
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; }
+    .logo-icon {
+      width: 34px; height: 34px;
+      background: linear-gradient(135deg, var(--purple), var(--purple-light));
+      border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+    }
+    .logo h1 {
+      font-size: 17px; font-weight: 800; letter-spacing: 0.3px;
+      background: linear-gradient(135deg, var(--purple-light), #c4b5fd);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .header-right { display: flex; align-items: center; gap: 8px; }
+    .badge {
+      display: flex; align-items: center; gap: 5px;
+      padding: 4px 10px; border-radius: 20px;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.4px;
+    }
+    .badge.live { background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.25); color: var(--green); }
+    .badge.paper { background: rgba(245,158,11,0.12); border: 1px solid rgba(245,158,11,0.25); color: var(--gold); }
+    .dot { width: 6px; height: 6px; border-radius: 50%; animation: pulse 1.5s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.8)} }
+    .update-time { font-size: 10px; color: var(--muted); }
+
+    .container { padding: 16px; max-width: 600px; margin: 0 auto; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #0e0820 0%, #180d30 60%, #0a0815 100%);
+      border: 1px solid #221845;
+      border-radius: var(--radius);
+      padding: 22px 20px 18px;
+      margin-bottom: 14px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--purple-light), transparent);
+    }
+    .hero-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 6px; }
+    .hero-value {
+      font-size: 40px; font-weight: 900; letter-spacing: -1.5px;
+      background: linear-gradient(135deg, var(--purple-light), #c4b5fd);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero-change {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 4px 12px; border-radius: 20px;
+      font-size: 14px; font-weight: 700; margin-top: 8px;
+    }
+    .hero-change.up { background: rgba(16,185,129,0.15); color: var(--green); border: 1px solid rgba(16,185,129,0.2); }
+    .hero-change.down { background: rgba(239,68,68,0.15); color: var(--red); border: 1px solid rgba(239,68,68,0.2); }
+
+    .hero-stats {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 0; margin-top: 18px; padding-top: 16px;
+      border-top: 1px solid #1e1e35;
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat + .hero-stat { border-left: 1px solid #1e1e35; }
+    .hs-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 4px; }
+    .hs-value { font-size: 18px; font-weight: 800; }
+    .hs-value.green { color: var(--green); }
+    .hs-value.red { color: var(--red); }
+    .hs-value.purple { color: var(--purple-light); }
+    .hs-value.gold { color: var(--gold); }
+
+    /* SECTION */
+    .section-title {
+      font-size: 11px; font-weight: 700; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.8px;
+      margin: 18px 0 10px;
+    }
+
+    /* BET CARDS */
+    .bet-list { display: flex; flex-direction: column; gap: 10px; }
+    .bet-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+    .bet-card.win  { border-left: 3px solid var(--green); }
+    .bet-card.loss { border-left: 3px solid var(--red); }
+    .bet-card.open { border-left: 3px solid var(--purple); }
+
+    .bet-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
+    .bet-match { font-size: 13px; font-weight: 700; }
+    .bet-comp { font-size: 10px; color: var(--muted); margin-top: 2px; }
+    .bet-right { text-align: right; flex-shrink: 0; margin-left: 12px; }
+    .bet-pnl { font-size: 16px; font-weight: 800; }
+    .bet-pnl.green { color: var(--green); }
+    .bet-pnl.red   { color: var(--red); }
+    .bet-pnl.muted { color: var(--muted); }
+
+    .bet-meta {
+      display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px;
+    }
+    .tag {
+      display: inline-flex; align-items: center; gap: 3px;
+      padding: 2px 8px; border-radius: 6px;
+      font-size: 10px; font-weight: 600; letter-spacing: 0.2px;
+    }
+    .tag.market  { background: rgba(124,58,237,0.12); color: var(--purple-light); border: 1px solid rgba(124,58,237,0.2); }
+    .tag.odds    { background: rgba(245,158,11,0.1); color: var(--gold); border: 1px solid rgba(245,158,11,0.15); }
+    .tag.stake   { background: rgba(100,116,139,0.12); color: var(--dim); border: 1px solid rgba(100,116,139,0.15); }
+    .tag.edge    { background: rgba(16,185,129,0.1); color: var(--green); border: 1px solid rgba(16,185,129,0.15); }
+    .tag.grade-a { background: rgba(16,185,129,0.15); color: var(--green); border: 1px solid rgba(16,185,129,0.2); font-weight: 800; }
+    .tag.grade-b { background: rgba(245,158,11,0.12); color: var(--gold); border: 1px solid rgba(245,158,11,0.2); font-weight: 800; }
+    .tag.grade-c { background: rgba(239,68,68,0.1); color: var(--red); border: 1px solid rgba(239,68,68,0.15); font-weight: 800; }
+    .tag.win  { background: rgba(16,185,129,0.15); color: var(--green); border: 1px solid rgba(16,185,129,0.2); }
+    .tag.loss { background: rgba(239,68,68,0.12); color: var(--red); border: 1px solid rgba(239,68,68,0.15); }
+    .tag.date { color: var(--muted); background: rgba(100,116,139,0.06); border: 1px solid rgba(100,116,139,0.1); }
+
+    .bet-date { font-size: 10px; color: var(--muted); margin-top: 6px; }
+
+    /* EXPOSURE BAR */
+    .exposure-wrap {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 14px;
+    }
+    .exposure-label { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+    .exposure-title { font-size: 12px; font-weight: 700; color: var(--dim); }
+    .exposure-val { font-size: 12px; font-weight: 700; color: var(--purple-light); }
+    .exp-bar { height: 6px; background: #1e1e35; border-radius: 3px; overflow: hidden; margin-bottom: 4px; }
+    .exp-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--purple), var(--purple-light)); transition: width 1s ease; }
+    .exp-sub { font-size: 10px; color: var(--muted); }
+
+    .empty { text-align: center; padding: 32px; color: var(--muted); font-size: 13px; }
+
+    .footer { text-align: center; padding: 24px; font-size: 11px; color: var(--muted); }
+    .footer span { color: var(--purple-light); font-weight: 700; }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo">
+    <div class="logo-icon">👻</div>
+    <h1>Phantom</h1>
+  </div>
+  <div class="header-right">
+    <div class="badge paper"><div class="dot" style="background:var(--gold)"></div>PAPER</div>
+    <div class="update-time" id="updateTime">--:--</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-label">Current Bankroll</div>
+    <div class="hero-value" id="bankroll">£--,---</div>
+    <div id="pnlPill" class="hero-change up">+£0.00 (+0.00%)</div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hs-label">Win Rate</div>
+        <div class="hs-value green" id="winRate">--%</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hs-label">ROI</div>
+        <div class="hs-value purple" id="roi">--%</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hs-label">Open</div>
+        <div class="hs-value gold" id="openCount">--</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hs-label">Settled</div>
+        <div class="hs-value" id="settledCount">--</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXPOSURE BAR -->
+  <div class="exposure-wrap">
+    <div class="exposure-label">
+      <div class="exposure-title">Open Exposure</div>
+      <div class="exposure-val" id="exposureVal">£0</div>
+    </div>
+    <div class="exp-bar"><div class="exp-fill" id="expFill" style="width:0%"></div></div>
+    <div class="exp-sub" id="expSub">0% of bankroll at risk</div>
+  </div>
+
+  <!-- OPEN BETS -->
+  <div class="section-title">Open Bets (<span id="openCountLabel">0</span>)</div>
+  <div class="bet-list" id="openBets">
+    <div class="empty">Loading...</div>
+  </div>
+
+  <!-- SETTLED BETS -->
+  <div class="section-title">Settled Bets</div>
+  <div class="bet-list" id="settledBets">
+    <div class="empty">Loading...</div>
+  </div>
+
+  <div class="footer">Powered by <span>Phantom AI</span> · Auto-refreshes every 60s</div>
+</div>
+
+<script>
+const DATA_URL = './data.json';
+
+function gbp(n) {
+  const v = parseFloat(n);
+  return '£' + Math.abs(v).toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+function signedGbp(n) {
+  const v = parseFloat(n);
+  return (v >= 0 ? '+£' : '-£') + Math.abs(v).toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+function dateStr(iso) {
+  if (!iso) return '';
+  const d = new Date(iso);
+  return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
+}
+
+async function loadData() {
+  const res = await fetch(DATA_URL + '?t=' + Date.now());
+  if (!res.ok) throw new Error('Failed to load data.json');
+  return res.json();
+}
+
+function render(data) {
+  const bankroll = data.bankroll;
+  const pnl      = data.totalPnl;
+  const pnlPct   = ((bankroll - data.startingBankroll) / data.startingBankroll * 100);
+  const stats    = data.stats;
+  const exposure = data.openExposure;
+  const expPct   = Math.min((exposure / bankroll) * 100, 100);
+
+  // Hero
+  document.getElementById('bankroll').textContent = gbp(bankroll);
+  const pill = document.getElementById('pnlPill');
+  pill.textContent = `${signedGbp(pnl)} (${pnl >= 0 ? '+' : ''}${pnlPct.toFixed(2)}%)`;
+  pill.className = 'hero-change ' + (pnl >= 0 ? 'up' : 'down');
+
+  document.getElementById('winRate').textContent = stats.winRate + '%';
+  document.getElementById('roi').textContent = (stats.roi >= 0 ? '+' : '') + stats.roi + '%';
+  document.getElementById('openCount').textContent = stats.open;
+  document.getElementById('settledCount').textContent = stats.settled;
+  document.getElementById('openCountLabel').textContent = stats.open;
+
+  // Exposure
+  document.getElementById('exposureVal').textContent = gbp(exposure);
+  document.getElementById('expFill').style.width = expPct.toFixed(1) + '%';
+  document.getElementById('expSub').textContent = `${expPct.toFixed(1)}% of bankroll at risk`;
+
+  // Open bets
+  const openEl = document.getElementById('openBets');
+  if (!data.openBets.length) {
+    openEl.innerHTML = '<div class="empty">No open bets</div>';
+  } else {
+    openEl.innerHTML = data.openBets.map(b => {
+      const matchDate = new Date(b.matchDate);
+      const now = new Date();
+      const daysLeft = Math.ceil((matchDate - now) / 86400000);
+      const daysLabel = daysLeft <= 0 ? 'Today' : daysLeft === 1 ? 'Tomorrow' : `${daysLeft}d`;
+      return `
+      <div class="bet-card open">
+        <div class="bet-top">
+          <div>
+            <div class="bet-match">${b.home} vs ${b.away}</div>
+            <div class="bet-comp">${b.competition}</div>
+          </div>
+          <div class="bet-right">
+            <div class="bet-pnl muted">${gbp(b.stake)}</div>
+            <div style="font-size:10px;color:var(--muted);margin-top:2px">staked</div>
+          </div>
+        </div>
+        <div class="bet-meta">
+          <span class="tag market">${b.market}: ${b.label}</span>
+          <span class="tag odds">@${b.odds}</span>
+          <span class="tag edge">+${b.edge?.toFixed(1)}% edge</span>
+          <span class="tag grade-${(b.grade||'B').toLowerCase()}">${b.grade || 'B'}</span>
+          <span class="tag date">${daysLabel}</span>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  // Settled bets
+  const settledEl = document.getElementById('settledBets');
+  if (!data.settledBets.length) {
+    settledEl.innerHTML = '<div class="empty">No settled bets yet</div>';
+  } else {
+    settledEl.innerHTML = data.settledBets.map(b => {
+      const isWin = b.result === 'win';
+      const pnlCls = isWin ? 'green' : 'red';
+      const clvStr = b.clv ? `CLV ${b.clv.toFixed(2)}` : '';
+      return `
+      <div class="bet-card ${b.result || 'open'}">
+        <div class="bet-top">
+          <div>
+            <div class="bet-match">${b.home} vs ${b.away}</div>
+            <div class="bet-comp">${b.competition}</div>
+          </div>
+          <div class="bet-right">
+            <div class="bet-pnl ${pnlCls}">${signedGbp(b.pnl)}</div>
+          </div>
+        </div>
+        <div class="bet-meta">
+          <span class="tag market">${b.market}: ${b.label}</span>
+          <span class="tag odds">@${b.odds}</span>
+          <span class="tag ${isWin ? 'win' : 'loss'}">${isWin ? 'WIN' : 'LOSS'}</span>
+          ${clvStr ? `<span class="tag edge">${clvStr}</span>` : ''}
+        </div>
+        <div class="bet-date">${dateStr(b.settledAt)}</div>
+      </div>`;
+    }).join('');
+  }
+
+  // Timestamp
+  document.getElementById('updateTime').textContent =
+    'Updated ' + new Date(data.updatedAt).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+}
+
+async function refresh() {
+  try {
+    const data = await loadData();
+    render(data);
+  } catch (err) {
+    console.error(err);
+    document.getElementById('updateTime').textContent = 'Error loading data';
+  }
+}
+
+refresh();
+setInterval(refresh, 60000);
+</script>
+</body>
+</html>
